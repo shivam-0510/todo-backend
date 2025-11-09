@@ -136,6 +136,9 @@ networks:
   todo-network:
     driver: bridge
 
+# Volumes section - Railway will handle persistence differently
+# For local development, volumes are used
+# For Railway, volumes are automatically managed
 volumes:
   user-db-data:
   todo-db-data:

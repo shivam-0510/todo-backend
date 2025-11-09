@@ -52,7 +52,22 @@ For production, consider migrating to Railway's managed PostgreSQL:
 
 ## Current Configuration
 
-- **Railway uses**: `docker-compose.railway.yml` (no volumes)
+- **Railway uses**: `docker-compose.railway.yml` (no volumes) - Railway will auto-detect this
 - **Local uses**: `docker-compose.yml` (with volumes)
-- **Configuration**: Set in `railway.json`
+- **Note**: Railway auto-detects docker-compose files, no `railway.json` needed
+
+## Deployment Options
+
+### Option 1: Use docker-compose.railway.yml (Recommended)
+1. Railway will auto-detect `docker-compose.railway.yml`
+2. No volumes, Railway handles persistence
+
+### Option 2: Rename for Railway
+1. Temporarily rename `docker-compose.railway.yml` to `docker-compose.yml`
+2. Deploy on Railway
+3. Rename back after deployment (or keep separate branches)
+
+### Option 3: Use docker-compose.yml
+1. Railway will use `docker-compose.yml` but ignore volumes
+2. Data persistence may be ephemeral
 
