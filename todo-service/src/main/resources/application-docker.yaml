@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: todo-service
+
+  datasource:
+    url: jdbc:postgresql://todo-db:5432/todo-db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+  instance:
+    hostname: todo-service
+    prefer-ip-address: false
+

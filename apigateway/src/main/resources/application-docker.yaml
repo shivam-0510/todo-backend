@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+
+cloud:
+  gateway:
+    routes:
+      - id: todo-service
+        uri: lb://todo-service
+        predicates:
+          - Path=/api/todos/**
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+          - Path=/api/users/**
+

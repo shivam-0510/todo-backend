@@ -1,0 +1,5 @@
+# Project exclude paths
+/apigateway/target/
+/discovery-server/target/
+/todo-service/target/
+/user-service/target/
