@@ -11,7 +11,9 @@ import java.util.Date;
 
 @Component
 public class JwtUtils {
-    private final String jwtSecret = "zZrP3l7Vr3k+H6ZQq+8a0bE9Lhz7VN/fBFfqQ5C3XZeF3+7YFmmkgBgXFGx2KujdRmYt0wTeZ5TGSjzpaKl7Tw==";
+    private final String jwtSecret = System.getenv("JWT_SECRET") != null 
+        ? System.getenv("JWT_SECRET") 
+        : System.getProperty("jwt.secret", "CHANGE_THIS_SECRET_IN_PRODUCTION_USE_ENVIRONMENT_VARIABLE");
     private final long jwtExpirationMs = 86400000; // 1 day
 
     public String generateJwtToken(UserDetails userDetails) {

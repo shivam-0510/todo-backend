@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 public class JwtUtils {
 
     // ⚠️ Use the exact same secret as in user-service
-    private final String jwtSecret = "zZrP3l7Vr3k+H6ZQq+8a0bE9Lhz7VN/fBFfqQ5C3XZeF3+7YFmmkgBgXFGx2KujdRmYt0wTeZ5TGSjzpaKl7Tw==";
+    private final String jwtSecret = System.getenv("JWT_SECRET") != null 
+        ? System.getenv("JWT_SECRET") 
+        : System.getProperty("jwt.secret", "CHANGE_THIS_SECRET_IN_PRODUCTION_USE_ENVIRONMENT_VARIABLE");
 
     /**
      * Validate the JWT token.
